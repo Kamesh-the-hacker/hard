@@ -1,0 +1,3 @@
+<p style="color:#f87171;">
+⚠ Internal config files should not be exposed
+</p>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ZYR Secure Portal</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin:0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #020617, #0f172a);
+  color: white;
+}
+
+/* NAVBAR */
+.navbar {
+  display:flex;
+  justify-content:space-between;
+  padding:15px 30px;
+  background:#020617;
+  border-bottom:1px solid #1e293b;
+}
+
+.logo {
+  color:#38bdf8;
+  font-weight:bold;
+  font-size:18px;
+}
+
+/* GRID */
+.container {
+  padding:30px;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap:20px;
+}
+
+/* CARD */
+.card {
+  background:#020617;
+  padding:20px;
+  border-radius:14px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.6);
+  transition:0.3s;
+}
+
+.card:hover {
+  transform:translateY(-5px);
+  box-shadow:0 20px 60px rgba(0,0,0,0.8);
+}
+
+/* BUTTON */
+a {
+  display:inline-block;
+  margin-top:10px;
+  padding:10px 15px;
+  background:#2563eb;
+  color:white;
+  text-decoration:none;
+  border-radius:8px;
+}
+
+/* TERMINAL EFFECT */
+.terminal {
+  background:black;
+  padding:10px;
+  font-family:monospace;
+  font-size:13px;
+  height:120px;
+  overflow:auto;
+  color:#22c55e;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="logo">💀 ZYR Security Lab</div>
+  <div>Admin Portal</div>
+</div>
+
+<!-- MAIN GRID -->
+<div class="container">
+
+  <!-- PROFILE CARD -->
+  <div class="card">
+    <h3>👤 Profile</h3>
+    <p>Access user profile data</p>
+    <a href="/profile?user=guest">Open</a>
+  </div>
+
+  <!-- FILE VIEWER -->
+  <div class="card">
+    <h3>📂 File Viewer</h3>
+    <p>View internal system files</p>
+    <a href="/view?file=app.py">View Source</a>
+  </div>
+
+  <!-- ADMIN -->
+  <div class="card">
+    <h3>🔐 Admin Panel</h3>
+    <p>Restricted access</p>
+    <a href="/admin">Try Access</a>
+  </div>
+
+  <!-- LIVE TERMINAL -->
+  <div class="card">
+    <h3>🖥 System Monitor</h3>
+    <div class="terminal" id="terminal"></div>
+  </div>
+
+</div>
+
+<script>
+const logs = [
+  "Initializing secure module...",
+  "Checking user permissions...",
+  "Access level: GUEST",
+  "Monitoring file system...",
+  "Warning: Unauthorized access attempt detected",
+  "Loading security logs..."
+];
+
+let i = 0;
+function typeLog() {
+  if (i < logs.length) {
+    document.getElementById("terminal").innerHTML += logs[i] + "<br>";
+    i++;
+    setTimeout(typeLog, 800);
+  }
+}
+typeLog();
+</script>
+
+</body>
+</html>
